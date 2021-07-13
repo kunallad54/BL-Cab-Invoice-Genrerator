@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.krunal.CabInVoiceGeneratorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-13T12:39:56" hostname="DESKTOP-M2BVJTD" time="0.008">
+<testsuite name="com.krunal.CabInVoiceGeneratorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-13T12:59:20" hostname="DESKTOP-M2BVJTD" time="0.006">
   <properties/>
-  <testcase name="givenUserID_ShouldGetTheListOfRidesFromRepo_ReturnInVoice" classname="com.krunal.CabInVoiceGeneratorTest" time="0.008"/>
-  <system-out><![CDATA[30.0
-{1=[Lcom.krunal.Ride;@333bcbb3}
-30.0
+  <testcase name="ifSelectedPremiumRides_ShouldReturnPremiumPrices" classname="com.krunal.CabInVoiceGeneratorTest" time="0.006"/>
+  <system-out><![CDATA[
+Press 1 - Normal Rides
+Press 2 - Premium Rides
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
