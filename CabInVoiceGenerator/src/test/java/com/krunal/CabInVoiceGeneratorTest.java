@@ -44,14 +44,14 @@ public class CabInVoiceGeneratorTest {
      * Test Case 3 : To get total fare given multiple rides
      */
     @Test
-    public void givenMultipleRides_ShouldReturnTotalAggregate() {
+    public void givenMultipleRides_ShouldReturnInVoiceSummary() {
         Ride[] rides = {
                 new Ride(2.0, 5),
                 new Ride(0.1, 1)};
-        double totalAggregate = inVoiceGenerator.calculateFare(rides);
+        InVoiceSummary summary = inVoiceGenerator.calculateFare(rides);
 
-        Assert.assertEquals(30.0,totalAggregate,0.0);
+        InVoiceSummary expectedInvoiceSummary = new InVoiceSummary(2, 30.0);
 
-
+        Assert.assertEquals(expectedInvoiceSummary,summary);
     }
 }

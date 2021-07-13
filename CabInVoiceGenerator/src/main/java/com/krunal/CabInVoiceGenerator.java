@@ -1,8 +1,11 @@
 /****************************************************************************************************
  *
  * Purpose :
- *  UC 2 : The InVoice Generator Should Now Take Multiple Rides,and Calculate Total Aggregate
- *         for all..
+ *  UC 3 : Enhanced Invoice :
+ *         The invoice generator should now return the following as a part of invoice :
+ *         - Total Number of Rides
+ *         - Total Fare
+ *         - Average Fare per Ride
  *
  * @author Krunal Lad
  * @Since 13-07-2021
@@ -39,12 +42,12 @@ public class CabInVoiceGenerator {
      * @param rides array of multiple rides
      * @return total aggregate fare of multiple rides
      */
-    public double calculateFare(Ride[] rides) {
+    public InVoiceSummary calculateFare(Ride[] rides) {
         double totalAggregateFare = 0;
         for (Ride ride :rides) {
             totalAggregateFare += this.calculateFare(ride.distance,ride.time);
         }
         System.out.println(totalAggregateFare);
-        return totalAggregateFare;
+        return new InVoiceSummary(rides.length,totalAggregateFare);
     }
 }
