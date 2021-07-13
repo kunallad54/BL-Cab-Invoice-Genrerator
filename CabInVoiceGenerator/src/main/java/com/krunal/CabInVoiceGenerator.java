@@ -1,9 +1,8 @@
 /****************************************************************************************************
  *
  * Purpose :
- *  UC1 : Given Distance and Time ,the invoice generator should return total fare of the journey
- *       COST --> Rs. 10 per kilometer , Rs. 1 per minute
- *                Minimum Fare = 5 Rs.
+ *  UC 2 : The InVoice Generator Should Now Take Multiple Rides,and Calculate Total Aggregate
+ *         for all..
  *
  * @author Krunal Lad
  * @Since 13-07-2021
@@ -34,4 +33,18 @@ public class CabInVoiceGenerator {
         return totalFare;
     }
 
+    /**
+     * Purpose : To calculate fare for multiple rides
+     *
+     * @param rides array of multiple rides
+     * @return total aggregate fare of multiple rides
+     */
+    public double calculateFare(Ride[] rides) {
+        double totalAggregateFare = 0;
+        for (Ride ride :rides) {
+            totalAggregateFare += this.calculateFare(ride.distance,ride.time);
+        }
+        System.out.println(totalAggregateFare);
+        return totalAggregateFare;
+    }
 }
