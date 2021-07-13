@@ -8,6 +8,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Hashtable;
+
 public class CabInVoiceGeneratorTest {
     CabInVoiceGenerator inVoiceGenerator = null;
 
@@ -54,4 +57,25 @@ public class CabInVoiceGeneratorTest {
 
         Assert.assertEquals(expectedInvoiceSummary,summary);
     }
+
+    /**
+     * Test Case 4 : To get list of rides from ride repository when user id is given
+     */
+    @Test
+    public void givenUserID_ShouldGetTheListOfRidesFromRepo_ReturnInVoice() {
+        int userID = 1;
+        Ride[] rides = {
+                new Ride(2.0, 5),
+                new Ride(0.1, 1)};
+        InVoiceSummary summary = inVoiceGenerator.calculateFare(rides);
+
+        Hashtable<Integer,Ride[]> listOfRides = new Hashtable<>();
+
+        listOfRides.put(userID,rides);
+
+        InVoiceSummary expectedInVoice = inVoiceGenerator.inVoiceService(listOfRides);
+        Assert.assertEquals(expectedInVoice,summary);
+    }
+
+
 }
